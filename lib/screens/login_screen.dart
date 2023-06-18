@@ -1,9 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:google_sign_in/google_sign_in.dart';
 import 'package:flutter_facebook_auth/flutter_facebook_auth.dart';
-import 'package:flutter_svg/flutter_svg.dart';
+import 'assets/fonts/presentation/g_icon.dart';
 
 class LoginScreen extends StatelessWidget {
+  void onLoginSuccess(BuildContext context) {
+    // Step 3: Replace the navigation stack after successful login
+    Navigator.pushReplacementNamed(context, '/home');
+  }
+
   final GoogleSignIn _googleSignIn = GoogleSignIn();
 
   Future<void> _signInWithGoogle() async {
@@ -60,14 +65,18 @@ class LoginScreen extends StatelessWidget {
                 border: OutlineInputBorder(),
               ),
             ),
+            SizedBox(height: 16.0),
+            ElevatedButton(
+              onPressed: () {
+                // Implement signup logic here
+                Navigator.pushNamed(context, '/home');
+              },
+              child: Text('Login'),
+            ),
             SizedBox(height: 24.0),
             ElevatedButton.icon(
               onPressed: _signInWithGoogle,
-              icon: SvgPicture.asset(
-                '../assets/images/google_logo.svg',
-                width: 24.0,
-                height: 24.0,
-              ),
+              icon: Icon(CustomIcons.google_1),
               label: Text('Sign in with Google'),
             ),
             SizedBox(height: 12.0),
