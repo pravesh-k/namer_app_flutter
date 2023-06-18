@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:google_sign_in/google_sign_in.dart';
 import 'package:flutter_facebook_auth/flutter_facebook_auth.dart';
-import 'assets/fonts/presentation/g_icon.dart';
 
 class LoginScreen extends StatelessWidget {
   void onLoginSuccess(BuildContext context) {
@@ -76,7 +75,7 @@ class LoginScreen extends StatelessWidget {
             SizedBox(height: 24.0),
             ElevatedButton.icon(
               onPressed: _signInWithGoogle,
-              icon: Icon(CustomIcons.google_1),
+              icon: Icon(Icons.login),
               label: Text('Sign in with Google'),
             ),
             SizedBox(height: 12.0),
